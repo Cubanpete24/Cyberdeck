@@ -42,7 +42,7 @@ function enterKey(e) {
       // git is the length of the commands stack, we get the most recent 
       git = commands.length;
       //add the new line here for the next xommand
-      addLine("cafe_bustelo2020@nc_direct.com:~$ " + command.innerHTML, "no-animation", 0);
+      addLine(false, "cafe_bustelo2020@nc_direct.com:~$ " + command.innerHTML, "no-animation", 0);
       //commander is where we parse what's entered
       commander(command.innerHTML.toLowerCase());
       
@@ -71,6 +71,8 @@ function enterKey(e) {
   }
 
 function commander(cmd) {
+let url = '';
+
   switch (cmd.toLowerCase()) {
     case "help":
       loopLines(help, "color2 margin", 80);
@@ -82,9 +84,9 @@ function commander(cmd) {
       loopLines(whoami, "color2 margin", 80);
       break;
     case "history":
-      addLine("<br>", "", 0);
+      addLine(false,"<br>", "", 0);
       loopLines(commands, "color2", 80);
-      addLine("<br>", "command", 80 * commands.length + 50);
+      addLine(false,"<br>", "command", 80 * commands.length + 50);
       break;
     case "clear":
       setTimeout(function() {
@@ -96,11 +98,45 @@ function commander(cmd) {
       loopLines(banner, "", 80);
       break;
     case "github":
-      addLine("Opening GitHub...", "color2", 0);
+      addLine(false,"Opening GitHub...", "color2", 0);
       newTab(github);
       break;
+    case "butts":
+      url = 'http://localhost:8081/handle/test_Harold'
+      let username = 'user';
+      let password = '12345';
+      let headers = new Headers();
+
+      // headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
+
+      fetch(url, {method:'GET',
+        // headers: headers,
+        // credentials: 'user:passwd'
+       })
+      .then(
+        (response) => response.text()
+        //butaddLine(response, "color2", 0)
+      )
+      .then((text) => {
+        console.log(text);
+        addLine(true,text, "color2", 0);
+      })
+      .catch(
+        
+        error => console.error(error));
+        break;
+
+    case "toonnames":
+      url = 'http://localhost:8081/getAllToons'
+      fetch(url, {method:'GET',})
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch(
+        error => console.error(error));
+
+      break;
     default:
-      addLine("<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
+      addLine(false,"<span class=\"inherit\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span>", "error", 100);
       break;
   }
 }
@@ -113,11 +149,12 @@ function newTab(link) {
 }
 
 // adds line when called 
-function addLine(text, style, time) {
+function addLine(asIs, text, style, time) {
   var t = "";
   for (let i = 0; i < text.length; i++) {
-    if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
-      t += "&nbsp;&nbsp;";
+    if ( text.charAt(i) == "\t" && text.charAt(i + 1) === "\t") {
+      console.log("lets gooo")
+      t += "&emsp;&emsp;";
       i++;
     } else {
       t += text.charAt(i);
@@ -136,6 +173,6 @@ function addLine(text, style, time) {
 
 function loopLines(name, style, time) {
   name.forEach(function(item, index) {
-    addLine(item, style, index * time);
+    addLine(false, item, style, index * time);
   });
 }

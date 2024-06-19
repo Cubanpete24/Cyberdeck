@@ -26,5 +26,20 @@ help = [
   '<span class="command">whoami</span>         Who are you?',
   '<span class="command">help</span>           Display commands',
   '<span class="command">clear</span>          Clear terminal',
+  '<span class="command">toons</span>          Access database of toons',
+  '<span class="command">toonNames</span>          Display names of toons',
+
+  "<br>",
+];
+
+toons = [
+  "<br>",
+  "Enter the name of a toon to get more info",
+  "<br>",
+];
+
+toonNames = [
+  "<br>",
+  "display names of toons",
   "<br>",
 ];
