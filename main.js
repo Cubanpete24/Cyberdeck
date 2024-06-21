@@ -130,7 +130,17 @@ let url = '';
       url = 'http://localhost:8081/getAllToons'
       fetch(url, {method:'GET',})
       .then((response) => response.json())
-      .then((json) => console.log(json))
+      //.then((json) => console.log(json))
+      .then((json) => {
+        for (var i = 0; i < json.length; i++){
+          //document.write("<br><br>array index: " + i);
+          var obj = json[i];
+          let text = obj["handle"]
+          addLine(true,text, "color2", 0);
+
+
+        }
+      })
       .catch(
         error => console.error(error));
 

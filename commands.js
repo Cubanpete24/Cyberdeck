@@ -28,6 +28,8 @@ help = [
   '<span class="command">clear</span>          Clear terminal',
   '<span class="command">toons</span>          Access database of toons',
   '<span class="command">toonNames</span>          Display names of toons',
+  '<span class="command">info [toonName]</span>          Display info of toonhelp',
+
 
   "<br>",
 ];
