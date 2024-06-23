@@ -96,7 +96,8 @@ function commander(cmd) {
       .catch((error) => console.error(error));
 
     // addLine(true, url, "color2", 0);
-  } else if (cmd.substring === "things") {
+  } else if (cmd.substring(0, 6) === "create") {
+    addLine(true, "I'm over here typing my shit coding my shit", "color2", 0);
   } else if (cmd.substring === "stuff") {
   } else {
     switch (cmd.toLowerCase()) {
@@ -207,6 +208,20 @@ function addLine(asIs, text, style, time) {
 
     window.scrollTo(0, document.body.offsetHeight);
   }, time);
+}
+
+function addForm() {
+
+  setTimeout(function () {
+    var form = document.createElement("form");
+    next.innerHTML = t;
+    next.className = style;
+
+    before.parentNode.insertBefore(next, before);
+
+    window.scrollTo(0, document.body.offsetHeight);
+  }, time);
+
 }
 
 function loopLines(name, style, time) {
