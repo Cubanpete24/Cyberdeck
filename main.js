@@ -2,6 +2,7 @@ var before = document.getElementById("before");
 
 // liner is the wrapper element for where we type
 var liner = document.getElementById("liner");
+var linerB = document.getElementById("linerB");
 
 // typer is the line where letters from the textarea go
 var command = document.getElementById("typer");
@@ -16,13 +17,14 @@ var submitToonButton = document.getElementById("submitToonButton");
 var formHandle = document.getElementById("submitToonButton");
 var formDiv = document.getElementById("form");
 
+// form values
+var textHandle = document.getElementById("handle");
+var textRole = document.getElementById("role");
+var roleLevel = document.getElementById("roleLevel");
+var hp = document.getElementById("hp");
 
-
-
-submitToonButton.onclick= function() {
-  var textHandle = document.getElementById("textAreaHandle")
-  console.log(textHandle.value)
-}
+//flag determines if toon creator form is visible
+let createFlag = false;
 
 // index for commands array
 var git = 0;
@@ -51,7 +53,7 @@ function enterKey(e) {
     commands.push(command.innerHTML);
     // git is the length of the commands stack, we get the most recent
     git = commands.length;
-    //add the new line here for the next xommand
+    //add the new line here for the next command
     addLine(
       false,
       "cafe_bustelo2020@nc_direct.com:~$ " + command.innerHTML,
@@ -65,6 +67,8 @@ function enterKey(e) {
     // reset values
     command.innerHTML = "";
     textarea.value = "";
+    //linerB.innerHTML = "type 'exit' to close without saving:  "
+    //console.log("fuk")
   }
   //38 is up pressed
   // this is responsible for cycling thru past commands
@@ -88,28 +92,32 @@ function enterKey(e) {
 
 function commander(cmd) {
   let url = "";
-  //str.substring(0, str.indexOf(' ')); // "72"
-  //str.substring(str.indexOf(' ') + 1); // "tocirah sneab"
 
   if (cmd.substring(0, 4) === "info") {
-    let handle = cmd.substring(cmd.indexOf(' ') + 1);
-     url = "http://localhost:8081/handle/" + handle
-     fetch(url, {method: "GET"})
-     .then((response) => {
-      if (response.ok){
-        return response.text()
-      } 
-      //addLine(true, "No Edgerunner with that name exists", "color2", 0);
-      return  "No Edgerunner with that name exists"
-     })
-     .then(function(text) {
-      addLine(true, text, "color2", 0);
-     })
+    let handle = cmd.substring(cmd.indexOf(" ") + 1);
+    url = "http://localhost:8081/handle/" + handle;
+    fetch(url, { method: "GET" })
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        }
+        return "No Edgerunner with that name exists";
+      })
+      .then(function (text) {
+        addLine(true, text, "color2", 0);
+      })
       .catch((error) => console.error(error));
+  } else if (cmd.substring(0, 6) === "create" && createFlag === false) {
+    createFlag = true;
+    formDiv.hidden = !formDiv.hidden;
+    linerB.innerHTML = "type 'exit' to close without saving:  ";
+    handle.focus();
 
-    // addLine(true, url, "color2", 0);
-  } else if (cmd.substring(0, 6) === "create") {
-    formDiv.hidden = !(formDiv.hidden);
+  } else if (cmd.substring(0, 4) === "exit" && createFlag === true) {
+    createFlag = false;
+    formDiv.hidden = !formDiv.hidden;
+    clearValuesToonCreationForm();
+    linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
   } else if (cmd.substring === "stuff") {
   } else {
     switch (cmd.toLowerCase()) {
@@ -118,9 +126,6 @@ function commander(cmd) {
         break;
       case "whois":
         loopLines(whois, "color2 margin", 80);
-        break;
-      case "whoami":
-        loopLines(whoami, "color2 margin", 80);
         break;
       case "history":
         addLine(false, "<br>", "", 0);
@@ -136,35 +141,8 @@ function commander(cmd) {
       case "banner":
         loopLines(banner, "", 80);
         break;
-      case "github":
-        addLine(false, "Opening GitHub...", "color2", 0);
-        newTab(github);
-        break;
-      case "butts":
-        url = "http://localhost:8081/handle/test_Harold";
-        let username = "user";
-        let password = "12345";
-        let headers = new Headers();
-
-        // headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
-
-        fetch(url, {
-          method: "GET",
-          // headers: headers,
-          // credentials: 'user:passwd'
-        })
-          .then(
-            (response) => response.text()
-            //butaddLine(response, "color2", 0)
-          )
-          .then((text) => {
-            console.log(text);
-            addLine(true, text, "color2", 0);
-          })
-          .catch((error) => console.error(error));
-        break;
-
-      case "toonnames":
+      case "ls":
+      case "getToons":
         url = "http://localhost:8081/getAllToons";
         fetch(url, { method: "GET" })
           .then((response) => response.json())
@@ -222,23 +200,56 @@ function addLine(asIs, text, style, time) {
   }, time);
 }
 
-function addForm() {
-
-  setTimeout(function () {
-    var form = document.createElement("form");
-    form.outerHTML = ''
-    next.innerHTML = t;
-    next.className = style;
-
-    before.parentNode.insertBefore(form, before);
-
-    window.scrollTo(0, document.body.offsetHeight);
-  }, time);
-
-}
-
 function loopLines(name, style, time) {
   name.forEach(function (item, index) {
     addLine(false, item, style, index * time);
   });
 }
+
+function clearValuesToonCreationForm (){
+  handle.value ='';
+  hp.value = '';
+  role.value = '';
+  roleLevel.value = '';
+}
+
+submitToonButton.onclick = async function () {
+  const formData = new FormData();
+  formData.append("hp", hp.value);
+  formData.append("handle", handle.value);
+  formData.append("role", role.value);
+  formData.append("role_level", roleLevel.value);
+  formData.append("max_hp", hp.value);
+
+  let jsonBody = JSON.stringify(Object.fromEntries(formData));
+  console.log(jsonBody);
+  //console.log(JSON.stringify(Object.fromEntries(formData));
+  url = "http://localhost:8081/addToon";
+    
+  fetch(url, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+      },
+      mode: "cors", 
+      body: jsonBody,
+    })
+    .then((response) => {
+      if (response.ok) {
+        return handle.value + " successfully added to database";
+      }
+      return "Failed to add edgerunner";
+    })
+    .then(function (text) {
+      clearValuesToonCreationForm();
+      createFlag = false;
+      formDiv.hidden = !formDiv.hidden;
+      linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
+      textarea.focus();
+      addLine(true, text, "color2", 0);
+    })
+    .catch((error) => console.error(error));
+
+  console.log(textHandle.value);
+ };

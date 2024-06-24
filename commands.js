@@ -13,21 +13,13 @@ whois = [
   "<br>"
 ];
 
-whoami = [
-  "<br>",
-  "Omg BEYONCE? What're you doing here!",
-  "<br>"
-];
-
 
 help = [
   "<br>",
-  '<span class="command">whois</span>          Who is Eugenio?',
-  '<span class="command">whoami</span>         Who are you?',
+  '<span class="command">whois</span>          Who is the dashing author of this project?',
   '<span class="command">help</span>           Display commands',
   '<span class="command">clear</span>          Clear terminal',
-  '<span class="command">toons</span>          Access database of toons',
-  '<span class="command">toonNames</span>          Display names of toons',
+  '<span class="command">getToons</span>          Display names of all toons in database',
   '<span class="command">create</span>          Open dialog to create new toon',
   '<span class="command">info [toonName]</span>          Display info of toonhelp',
 

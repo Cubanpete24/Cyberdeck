@@ -2,6 +2,7 @@
   --terminal_backdrop: #001b02;
   --terminal_textColorPrimary: #519975;
   --terminal_textFocus: #73ABAD;
+  --linerText: "cafe_bustelo2020@nc_direct.com:~$";
 }
 
 body {
@@ -65,12 +66,20 @@ body {
     animation-delay: 1.2s;
     opacity: 0;
   }
-  #liner::before {
+  /* #liner::before {
     color: var(--terminal_textColorPrimary);
-    content: "cafe_bustelo2020@nc_direct.com:~$";
-  }
-  #liner.password::before {
-    content: "Password:";
+     content: "cafe_bustelo2020@nc_direct.com:~$"; 
+    content: var(--linerText);
+  } */
+  #linerB {
+    color: var(--terminal_textColorPrimary);
+    /*display: block;*/
+    line-height: 1.3em;
+    margin: 0;
+    /*overflow: hidden;*/
+    /* white-space: nowrap;*/
+    margin: 0;
+    letter-spacing: 0.05em;
   }
   @keyframes show {
     from {
@@ -157,7 +166,24 @@ body {
     border: none;
   }
    button {
-    height: 15px;
+    height: 20px;
+    width: 70px;
+    margin-top: 10px;
+    margin-left: 200px;
+    font-family: cursor, monospace;
+    box-shadow: none;
+background-color: transparent;
+background: none;
+text-align: center;
+outline: none;
+
+border-top: var(--terminal_textColorPrimary) dotted 2px;
+border-bottom: var(--terminal_textColorPrimary) dotted 2px;
+color:#B89076;
+
    }
+   button:active {
+    border-style: outset;
+  }
 
   }
