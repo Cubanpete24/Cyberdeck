@@ -20,7 +20,14 @@
         </pre>
         <p class=""><span class="index">SGI Technologies is not responsible for any daemons or Black Ice encountered while netrunning</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
       </div>
-
+      <div class="form" id="form" hidden>
+        <div id="formHandle">Handle: <textarea id="textAreaHandle"></textarea></div>
+        <div id="formRole">Role: <textarea></textarea></div>
+        <div id="formRoleLevel">Role Level: <textarea></textarea></div>
+        <div id="formHp">HP: <textarea></textarea></div>
+        <div id="formToonId">Id: <textarea></textarea></div>
+        <div id="submitToonButton">Submit <button></button></div>
+      </div>
       <div id="command" onclick="$('texter').focus();">
         <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
                      moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>

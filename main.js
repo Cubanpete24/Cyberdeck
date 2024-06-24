@@ -12,6 +12,18 @@ var textarea = document.getElementById("texter");
 // terminal is the wrapper for the terminal
 var terminal = document.getElementById("terminal");
 
+var submitToonButton = document.getElementById("submitToonButton");
+var formHandle = document.getElementById("submitToonButton");
+var formDiv = document.getElementById("form");
+
+
+
+
+submitToonButton.onclick= function() {
+  var textHandle = document.getElementById("textAreaHandle")
+  console.log(textHandle.value)
+}
+
 // index for commands array
 var git = 0;
 
@@ -97,7 +109,7 @@ function commander(cmd) {
 
     // addLine(true, url, "color2", 0);
   } else if (cmd.substring(0, 6) === "create") {
-    addLine(true, "I'm over here typing my shit coding my shit", "color2", 0);
+    formDiv.hidden = !(formDiv.hidden);
   } else if (cmd.substring === "stuff") {
   } else {
     switch (cmd.toLowerCase()) {
@@ -214,10 +226,11 @@ function addForm() {
 
   setTimeout(function () {
     var form = document.createElement("form");
+    form.outerHTML = ''
     next.innerHTML = t;
     next.className = style;
 
-    before.parentNode.insertBefore(next, before);
+    before.parentNode.insertBefore(form, before);
 
     window.scrollTo(0, document.body.offsetHeight);
   }, time);
