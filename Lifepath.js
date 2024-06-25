@@ -308,3 +308,79 @@ life_goals = [
     "Gain fame and recognition",
     "Become feared and respected."
 ]
+
+rbl_rb_what_kind = [
+    "Musician",
+    "Slam Poet",
+    "Street Artist",
+    "Performance Artist",
+    "Comedian",
+    "Orator",
+    "Politico",
+    "Rap Artist",
+    "DJ",
+    "Idoru"
+]
+
+rbl_rb_why_leave_band = [
+    "You were a jerk and the rest of the group voted you out.",
+    "You got caught sleeping around with another member's mainline.",
+    "The rest of the group was killed in a tragic \"accident.\"",
+    "The rest of the group was murdered or otherwise broken up by external enemies.",
+    "The group broke up over \"creative differences.\"",
+    "You decided to go solo."
+]
+
+rbl_rb_where_perform = [
+    "Alternative Cafes",
+    "Private Clubs",
+    "Seedy Dive Bars",
+    "Guerrilla Performances",
+    "Nightclubs Around the City",
+    "On the Data Pool"
+]
+
+rbl_rb_whos_gunning4You = [
+    "Old group member who thinks you did them dirty.",
+    "Rival group or artist trying to steal market share.",
+    "Corporate enemies who don't like your message.",
+    "Critic or other \"influencer\" trying to bring you down.",
+    "Older media star who feels threatened by your rising fame.",
+    "Romantic interest or media figure who wants revenge for personal reasons."
+]
+
+rbl_solo_type = [
+  "Bodyguard",
+  "Street Muscle for Hire",
+  "Corporate Enforcer who takes jobs on the side",
+  "Corporate or Freelance Black Ops Agent",
+  "Local Vigilante for Hire",
+  "Assassin/Hitman for Hire",
+];
+
+rbl_solo_moral_compass = [
+  'Always working for good, trying to take out the "bad guys."',
+  "Always spare the innocent (elderly, women, children, pets).",
+  "Will occasionally slip and do unethical or bad things, but it's rare.",
+  "Ruthless and profit centered; you will work for anyone, take any job for the money.",
+  "Willing to bend the rules (and the law) to get the job done.",
+  "Totally evil. You engage in illegal, unethical work all the time; in fact, you enjoy it.",
+];
+
+rbl_solo_operational_territory = [
+  "A Corporate Zone",
+  "Combat Zones",
+  "The whole City",
+  "The territory of a single Corporation",
+  "The territory of a particular Fixer or contact",
+  "Wherever the money takes you",
+];
+
+rbl_solo_whos_gunning = [
+    "A Corporation you may have angered.",
+    "A boostergang you may have tackled earlier.",
+    "Corrupt Lawmen or Lawmen who mistakenly think you're guilty of something.",
+     "A rival Solo from another Corp.",
+     "A Fixer who sees you as a threat.",
+    "A rival Solo who sees you as their nemesis."
+]
