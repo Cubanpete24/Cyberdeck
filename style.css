@@ -165,25 +165,31 @@ body {
     outline: var(--terminal_textFocus) dotted 2px;
     border: none;
   }
-   button {
+  #submitToonButton {
     height: 20px;
     width: 70px;
     margin-top: 10px;
     margin-left: 200px;
     font-family: cursor, monospace;
     box-shadow: none;
-background-color: transparent;
-background: none;
-text-align: center;
-outline: none;
-
-border-top: var(--terminal_textColorPrimary) dotted 2px;
-border-bottom: var(--terminal_textColorPrimary) dotted 2px;
-color:#B89076;
-
+    background-color: transparent;
+    background: none;
+    text-align: center;
+    outline: none;
+    border-top: var(--terminal_textColorPrimary) dotted 2px;
+    border-bottom: var(--terminal_textColorPrimary) dotted 2px;
+    border-left: var(--terminal_textColorPrimary) dotted 2px;
+    border-right: var(--terminal_textColorPrimary) dotted 2px;
+    color:#B89076;
    }
-   button:active {
-    border-style: outset;
-  }
+   #submitToonButton:hover {
+
+    border-top: var(--terminal_textFocus) dotted 2px;
+    border-bottom: var(--terminal_textFocus) dotted 2px;
+    border-left: var(--terminal_textFocus) dotted 2px;
+    border-right: var(--terminal_textFocus) dotted 2px;
+
+    color:#B89076;
+   }
 
   }

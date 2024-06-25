@@ -13,9 +13,11 @@ var textarea = document.getElementById("texter");
 // terminal is the wrapper for the terminal
 var terminal = document.getElementById("terminal");
 
+// html elements to be referenced by 
 var submitToonButton = document.getElementById("submitToonButton");
-var formHandle = document.getElementById("submitToonButton");
 var formDiv = document.getElementById("form");
+
+submitToonButton.onclick = function() {submitToon()};
 
 // form values
 var textHandle = document.getElementById("handle");
@@ -29,13 +31,14 @@ let createFlag = false;
 // index for commands array
 var git = 0;
 
-//I'm assuming commands is the list of commands
+//list of commands for the history command
 var commands = [];
 
-setTimeout(function () {
-  loopLines(banner, "", 80);
-  textarea.focus();
-}, 100);
+// prints out banner
+// setTimeout(function () {
+//   loopLines(banner, "", 80);
+//   textarea.focus();
+// }, 100);
 
 // we are telling javascript to listen to an event
 window.addEventListener("keyup", enterKey);
@@ -45,7 +48,6 @@ textarea.value = "";
 command.innerHTML = textarea.value;
 
 // command is equal to whatever is in the textbox.
-
 function enterKey(e) {
   //13 == enter is pressed
   if (e.keyCode == 13) {
@@ -55,7 +57,6 @@ function enterKey(e) {
     git = commands.length;
     //add the new line here for the next command
     addLine(
-      false,
       "cafe_bustelo2020@nc_direct.com:~$ " + command.innerHTML,
       "no-animation",
       0
@@ -67,8 +68,6 @@ function enterKey(e) {
     // reset values
     command.innerHTML = "";
     textarea.value = "";
-    //linerB.innerHTML = "type 'exit' to close without saving:  "
-    //console.log("fuk")
   }
   //38 is up pressed
   // this is responsible for cycling thru past commands
@@ -104,7 +103,7 @@ function commander(cmd) {
         return "No Edgerunner with that name exists";
       })
       .then(function (text) {
-        addLine(true, text, "color2", 0);
+        addLine(text, "color2", 0);
       })
       .catch((error) => console.error(error));
   } else if (cmd.substring(0, 6) === "create" && createFlag === false) {
@@ -128,9 +127,9 @@ function commander(cmd) {
         loopLines(whois, "color2 margin", 80);
         break;
       case "history":
-        addLine(false, "<br>", "", 0);
+        addLine("<br>", "", 0);
         loopLines(commands, "color2", 80);
-        addLine(false, "<br>", "command", 80 * commands.length + 50);
+        addLine("<br>", "command", 80 * commands.length + 50);
         break;
       case "clear":
         setTimeout(function () {
@@ -138,11 +137,8 @@ function commander(cmd) {
           before = document.getElementById("before");
         }, 1);
         break;
-      case "banner":
-        loopLines(banner, "", 80);
-        break;
       case "ls":
-      case "getToons":
+      case "gettoons":
         url = "http://localhost:8081/getAllToons";
         fetch(url, { method: "GET" })
           .then((response) => response.json())
@@ -152,7 +148,7 @@ function commander(cmd) {
               //document.write("<br><br>array index: " + i);
               var obj = json[i];
               let text = obj["handle"];
-              addLine(true, text, "color2", 0);
+              addLine(text, "color2", 0);
             }
           })
           .catch((error) => console.error(error));
@@ -160,7 +156,6 @@ function commander(cmd) {
         break;
       default:
         addLine(
-          false,
           '<span class="inherit">Command not found. For a list of commands, type <span class="command">\'help\'</span>.</span>',
           "error",
           100
@@ -176,13 +171,12 @@ function newTab(link) {
     window.open(link, "_blank");
   }, 500);
 }
-
-// adds line when called
-function addLine(asIs, text, style, time) {
+// adds line to terminal window when command is entered
+function addLine(text, style, time) {
   var t = "";
   for (let i = 0; i < text.length; i++) {
     if (text.charAt(i) == "\t" && text.charAt(i + 1) === "\t") {
-      // console.log("lets gooo");
+      // responsible for parsing tab characters from API call and putting them 
       t += "&emsp;&emsp;";
       i++;
     } else {
@@ -199,21 +193,21 @@ function addLine(asIs, text, style, time) {
     window.scrollTo(0, document.body.offsetHeight);
   }, time);
 }
-
+// calls addLine, for big data guys
 function loopLines(name, style, time) {
   name.forEach(function (item, index) {
-    addLine(false, item, style, index * time);
+    addLine(item, style, index * time);
   });
 }
-
-function clearValuesToonCreationForm (){
-  handle.value ='';
+// initializes form for user
+function clearValuesToonCreationForm() {
+  handle.value = '';
   hp.value = '';
   role.value = '';
   roleLevel.value = '';
 }
-
-submitToonButton.onclick = async function () {
+// function handles form processing for creating new toon, player, or NPC, and persisting it to db
+async function submitToon() {
   const formData = new FormData();
   formData.append("hp", hp.value);
   formData.append("handle", handle.value);
@@ -223,18 +217,17 @@ submitToonButton.onclick = async function () {
 
   let jsonBody = JSON.stringify(Object.fromEntries(formData));
   console.log(jsonBody);
-  //console.log(JSON.stringify(Object.fromEntries(formData));
   url = "http://localhost:8081/addToon";
-    
+
   fetch(url, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      },
-      mode: "cors", 
-      body: jsonBody,
-    })
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+    mode: "cors",
+    body: jsonBody,
+  })
     .then((response) => {
       if (response.ok) {
         return handle.value + " successfully added to database";
@@ -247,9 +240,13 @@ submitToonButton.onclick = async function () {
       formDiv.hidden = !formDiv.hidden;
       linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
       textarea.focus();
-      addLine(true, text, "color2", 0);
+      addLine(text, "color2", 0);
     })
     .catch((error) => console.error(error));
 
   console.log(textHandle.value);
- };
+};
+
+async function testFunc() {
+  console.log(life_goals[0]);
+};
