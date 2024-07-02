@@ -15,7 +15,7 @@ var terminal = document.getElementById("terminal");
 
 // html elements to be referenced by 
 var submitToonButton = document.getElementById("submitToonButton");
-var formDiv = document.getElementById("form");
+var formDiv = document.getElementById("formFleft");
 
 submitToonButton.onclick = function() {submitToon()};
 
@@ -26,6 +26,38 @@ var roleLevel = document.getElementById("roleLevel");
 var hp = document.getElementById("hp");
 
 //lifepath form values 
+
+var culturalOrigin = document.getElementById("culturalOrigin");
+var languages = document.getElementById("languages");
+var personality = document.getElementById("personality");
+var clothingStyle = document.getElementById("clothingStyle");
+var hairstyle = document.getElementById("hairstyle");
+var affectation = document.getElementById("affectation");
+var valuedQualityPerson = document.getElementById("valuedQualityPerson");
+var feelingsAboutPeople = document.getElementById("feelingsAboutPeople");
+var mostValuedPerson = document.getElementById("mostValuedPerson");
+var mostValuedPossession = document.getElementById("mostValuedPossession");
+var originalBackground = document.getElementById("originalBackground");
+var childhoodEnv = document.getElementById("childhoodEnv");
+var familyCrisis = document.getElementById("familyCrisis");
+var friendCount = document.getElementById("friendCount");
+var friendsRelationshipToYou = document.getElementById("friendsRelationshipToYou");
+var enemy = document.getElementById("enemy");
+var fallout = document.getElementById("fallout");
+var whatCanEnemyDo = document.getElementById("whatCanEnemyDo");
+var sweetRevenge = document.getElementById("sweetRevenge");
+var whatHappened = document.getElementById("whatHappened");
+var lifeGoals = document.getElementById("lifeGoals");
+
+var formDiv2 = document.getElementById("formFright");
+
+var submitLifepathButton = document.getElementById("submitLifepathButton");
+submitLifepathButton.onclick = function() {getIDByHandle("Clip")};
+
+
+
+
+
 
 //flag determines if toon creator form is visible
 let createFlag = false;
@@ -241,6 +273,81 @@ async function submitToon() {
       clearValuesToonCreationForm();
       createFlag = false;
       formDiv.hidden = !formDiv.hidden;
+      linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
+      textarea.focus();
+      addLine(text, "color2", 0);
+    })
+    .catch((error) => console.error(error));
+
+  console.log(textHandle.value);
+};
+
+async function getIDByHandle(handle) {
+  url = "http://localhost:8081/IdByHandle/" + handle;
+  console.log("we're trying")
+  fetch(url, { method: "GET" })
+  .then((response) => response.text())
+  //.then((json) => console.log(json))
+  .then(function (text) {
+      console.log(text);
+      return Number(text)
+    
+  })
+  .catch((error) => console.error(error));
+}
+
+async function submitLifepath() {
+  const formData = new FormData();
+  let handle = "Lizzard";
+  let id = getIDByHandle(handle);
+  formData.append("handle", handle);
+  formData.append("toonId", id);
+  formData.append("cultural_origins", hp.value);
+  formData.append("cultural_origins", hp.value);
+  formData.append("languages", handle.value);
+  formData.append("personality", role.value);
+  formData.append("clothing_style", roleLevel.value);
+  formData.append("affectation", hp.value);
+  formData.append("most_valued_quality", hp.value);
+  formData.append("feelings_about_people", hp.value);
+  formData.append("most_valued_person", hp.value);
+  formData.append("most_valued_possession", hp.value);
+  formData.append("original_background", hp.value);
+  formData.append("original_background_desc", hp.value);
+  formData.append("childhood_environment", hp.value);
+  formData.append("family_crisis", hp.value);
+  formData.append("friends_relationship_to_you", hp.value);
+  formData.append("enemy", hp.value);
+  formData.append("what_caused_it", hp.value);
+  formData.append("what_can_enemy_do", hp.value);
+  formData.append("sweet_revenge", hp.value);
+  formData.append("what_happened", hp.value);
+  formData.append("life_goals", hp.value);
+
+
+  let jsonBody = JSON.stringify(Object.fromEntries(formData));
+  console.log(jsonBody);
+  url = "http://localhost:8081/addLifepath";
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      "Content-Type": "application/json"
+    },
+    mode: "cors",
+    body: jsonBody,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return handle.value + " lifepath successfully added to database";
+      }
+      return "Failed to add edgerunner lifepath";
+    })
+    .then(function (text) {
+      //learValuesToonCreationForm();
+      //createFlag = false;
+      //formDiv.hidden = !formDiv.hidden;
       linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
       textarea.focus();
       addLine(text, "color2", 0);
