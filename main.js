@@ -25,8 +25,11 @@ var textRole = document.getElementById("role");
 var roleLevel = document.getElementById("roleLevel");
 var hp = document.getElementById("hp");
 
+//lifepath form values 
+
 //flag determines if toon creator form is visible
 let createFlag = false;
+let createOriginFlag = false;
 
 // index for commands array
 var git = 0;
@@ -110,7 +113,7 @@ function commander(cmd) {
     createFlag = true;
     formDiv.hidden = !formDiv.hidden;
     linerB.innerHTML = "type 'exit' to close without saving:  ";
-    handle.focus();
+    //handle.focus();
 
   } else if (cmd.substring(0, 4) === "exit" && createFlag === true) {
     createFlag = false;

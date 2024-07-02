@@ -21,16 +21,14 @@
     ░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
     ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
         </pre>
-        <p class=""><span class="index">SGI Technologies is not responsible for any daemons or Black Ice encountered while netrunning</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
+        <p class=""><span class="index">SGI Technologies is not responsible for any botched jobs</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
       </div>
       <div class="form" id="form" hidden>
-        <div id="formHandle">Handle: <textarea id="handle"></textarea></div>
-        <div id="formRole">Role: <textarea id="role"></textarea></div>
-        <div id="formRoleLevel">Role Level: <textarea id="roleLevel"></textarea></div>
-        <div id="formHp">HP: <textarea id="hp"></textarea></div>
-        <div id="culturalOrigins">Cultural Origins: <textarea id="hp"></textarea></div>
-
-        <div id="submitToonButton">Submit</div><div id="Sanity">Sanity</div>
+        <dt id="formHandle" class="toonForm">Handle:          </dt><dd><textarea id="handle"></textarea></dd>
+        <dt id="formRealName" class="toonForm">Real Name: </dt><dd><textarea id="realName"></textarea></dd>
+        <dt id="formRole" class="toonForm">Role:          </dt><dd><textarea id="role"></textarea></dd>
+        <dt id="formRoleLevel" class="toonForm">Role Level:</dt><dd><textarea id="roleLevel"></textarea></dd>
+        <div id="submitToonButton" class="toonForm">Submit</div>
       </div>
       <div id="command" onclick="$('texter').focus();">
         <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
@@ -45,7 +43,23 @@
       <script src="main.js"></script>
       <script src="Lifepath.js"></script>
     </div>
-    <div class="fright">hello</div>
+    <div class="fright">
+      <dl class="form" id="form" >
+        <dt class="cultDT">Cultural Origin:          </dt><dd class="cultDD"><textarea id="culturalOrigin"></textarea><button class="cultRoll"></button></dd>
+        <dt class="cultDT">Languages (comma separated): </dt><dd class="cultDD"><textarea id="languages"></textarea></dd>
+        <dt class="cultDT">Personality:          </dt><dd class="cultDD"><textarea id="personality"></textarea></dd>
+        <dt class="cultDT">Clothing Style:</dt><dd class="cultDD"><textarea id="clothingStyle"></textarea></dd>
+        <dt class="cultDT">Hairstyle:</dt><dd class="cultDD"><textarea id="hairstyle"></textarea></dd>
+        <dt class="cultDT">Affectation you are never without:</dt><dd class="cultDD"><textarea id="affectation"></textarea></dd>
+        <dt class="cultDT">Most valued quality in a person:</dt><dd class="cultDD"><textarea id="valuedQualityPerson"></textarea></dd>
+        <dt class="cultDT">General attitude towards people:</dt><dd class="cultDD"><textarea id="feelingsAboutPeople"></textarea></dd>
+        <dt class="cultDT">Most Valued Person:</dt><dd class="cultDD"><textarea id="mostValuedPerson"></textarea></dd>
+
+
+
+        <div id="submitLifepathButton">Submit</div>
+        </dl>
+    </div>
   </div>
 </body>
 </html>
