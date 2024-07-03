@@ -26,7 +26,6 @@ var roleLevel = document.getElementById("roleLevel");
 var hp = document.getElementById("hp");
 
 //lifepath form values 
-
 var culturalOrigin = document.getElementById("culturalOrigin");
 var languages = document.getElementById("languages");
 var personality = document.getElementById("personality");
@@ -52,7 +51,9 @@ var lifeGoals = document.getElementById("lifeGoals");
 var formDiv2 = document.getElementById("formFright");
 
 var submitLifepathButton = document.getElementById("submitLifepathButton");
-submitLifepathButton.onclick = function() {getIDByHandle("Clip")};
+submitLifepathButton.onclick = function() {submitLifepath()};
+//submitLifepathButton.onclick = function() {getIDByHandle("Lizzard")};
+
 
 
 
@@ -282,52 +283,64 @@ async function submitToon() {
   console.log(textHandle.value);
 };
 
-async function getIDByHandle(handle) {
+function getIDByHandle(handle) {
   url = "http://localhost:8081/IdByHandle/" + handle;
-  console.log("we're trying")
+  //console.log("we're trying")
+  //console.log(culturalOrigin.value)
   fetch(url, { method: "GET" })
   .then((response) => response.text())
-  //.then((json) => console.log(json))
   .then(function (text) {
-      console.log(text);
-      return Number(text)
-    
+      console.log("about to return text " + text);
+      return text;
   })
   .catch((error) => console.error(error));
 }
 
-async function submitLifepath() {
+
+
+ function submitLifepath() {
+  
   const formData = new FormData();
   let handle = "Lizzard";
-  let id = getIDByHandle(handle);
+  console.log(personality);
+  console.log(languages.value);
+
   formData.append("handle", handle);
-  formData.append("toonId", id);
-  formData.append("cultural_origins", hp.value);
-  formData.append("cultural_origins", hp.value);
-  formData.append("languages", handle.value);
-  formData.append("personality", role.value);
-  formData.append("clothing_style", roleLevel.value);
-  formData.append("affectation", hp.value);
-  formData.append("most_valued_quality", hp.value);
-  formData.append("feelings_about_people", hp.value);
-  formData.append("most_valued_person", hp.value);
-  formData.append("most_valued_possession", hp.value);
-  formData.append("original_background", hp.value);
-  formData.append("original_background_desc", hp.value);
-  formData.append("childhood_environment", hp.value);
-  formData.append("family_crisis", hp.value);
-  formData.append("friends_relationship_to_you", hp.value);
-  formData.append("enemy", hp.value);
-  formData.append("what_caused_it", hp.value);
-  formData.append("what_can_enemy_do", hp.value);
-  formData.append("sweet_revenge", hp.value);
-  formData.append("what_happened", hp.value);
-  formData.append("life_goals", hp.value);
+  formData.append("cultural_origins", culturalOrigin.value);
+  formData.append("languages", languages.value);
+  formData.append("personality", personality.value);
+  formData.append("clothing_style", clothingStyle.value);
+  formData.append("hairstyle", hairstyle.value);
+  formData.append("affectation", affectation.value);
+  formData.append("most_valued_quality", valuedQualityPerson.value);
+  formData.append("feelings_about_people", feelingsAboutPeople.value);
+  formData.append("most_valued_person", mostValuedPerson.value);
+  formData.append("most_valued_possession", mostValuedPossession.value);
+  formData.append("original_background", originalBackground.value);
+  formData.append("original_background_desc", originalBackground.value);
+  formData.append("childhood_environment", childhoodEnv.value);
+  formData.append("family_crisis", familyCrisis.value);
+  formData.append("friends_relationship_to_you", friendsRelationshipToYou.value);
+  formData.append("enemy", enemy.value);
+  formData.append("what_caused_it", fallout.value);
+  formData.append("what_can_enemy_do", whatCanEnemyDo.value);
+  formData.append("sweet_revenge", sweetRevenge.value);
+  formData.append("what_happened", whatHappened.value);
+  formData.append("life_goals", lifeGoals.value);
 
 
-  let jsonBody = JSON.stringify(Object.fromEntries(formData));
-  console.log(jsonBody);
-  url = "http://localhost:8081/addLifepath";
+  //console.log(jsonBody);
+  
+
+  urlForID = "http://localhost:8081/IdByHandle/" + handle;
+  fetch(urlForID, { method: "GET" })
+  .then((response) => response.text())
+  .then(function (text) {
+    let jsonBody = JSON.stringify(Object.fromEntries(formData));
+      //console.log("about to return text " + text);
+      id = Number(text);
+      formData.append("toonId", id);
+      let url = "http://localhost:8081/addLifepath";
 
   fetch(url, {
     method: "POST",
@@ -345,16 +358,13 @@ async function submitLifepath() {
       return "Failed to add edgerunner lifepath";
     })
     .then(function (text) {
-      //learValuesToonCreationForm();
-      //createFlag = false;
-      //formDiv.hidden = !formDiv.hidden;
       linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
       textarea.focus();
       addLine(text, "color2", 0);
     })
     .catch((error) => console.error(error));
-
-  console.log(textHandle.value);
+  })
+  .catch((error) => console.error(error));
 };
 
 async function testFunc() {

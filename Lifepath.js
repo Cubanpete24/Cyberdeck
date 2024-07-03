@@ -1,4 +1,4 @@
-cultural_origins = [
+cultural_origins_options = [
   {
     region: "North American",
     languages: [
@@ -39,7 +39,7 @@ cultural_origins = [
   // Note for Eugenio, p45 pick up from Eastern Europeans
 ];
 
-personality = [
+personality_options = [
   "Shy and secretive",
   "Rebellious, antisocial, and violent",
   "Arrogant, proud, and aloof",
@@ -52,7 +52,7 @@ personality = [
   "Friendly and outgoing",
 ];
 
-clothing_style = [
+clothing_style_options = [
   "Generic Chic (Standard, Colorful, Modular)",
   "Leisurewear (Comfort, Agility, Athleticism)",
   "Urban Flash (Flashy, Technological, Streetwear)",
@@ -65,7 +65,7 @@ clothing_style = [
   "Asia Pop (Bright, Costume-like, Youthful)",
 ];
 
-hairstyle = [
+hairstyle_options = [
   "mohawk",
   "Long and ratty",
   "Short and SPiked",
@@ -78,7 +78,7 @@ hairstyle = [
   "Long and straight",
 ];
 
-affectation = [
+affectation_options = [
   "tattoos",
   "mirrorshades",
   "ritual scars",
@@ -91,7 +91,7 @@ affectation = [
   "Strange contacts",
 ];
 
-most_valued_quality = [
+most_valued_quality_options = [
   "money",
   "honor",
   "Your word",
@@ -104,7 +104,7 @@ most_valued_quality = [
   "Friendship",
 ];
 
-feelings_about_people = [
+feelings_about_people_options = [
   "I stay neutral",
   "I stay neutral",
   "I like almost everyone.",
@@ -117,7 +117,7 @@ feelings_about_people = [
   "People are wonderful!",
 ];
 
-most_valued_person = [
+most_valued_person_options = [
   "A parent",
   "A brother or sister",
   "A lover",
@@ -130,7 +130,7 @@ most_valued_person = [
   "No one",
 ];
 
-most_valued_possession = [
+most_valued_possession_options = [
   "A weapon",
   "A tool",
   "A piece of clothing",
@@ -143,7 +143,7 @@ most_valued_possession = [
   "A letter",
 ];
 
-original_background = [
+original_background_options = [
   {
     bg: "Corporate Execs",
     description:
@@ -196,7 +196,7 @@ original_background = [
   },
 ];
 
-childhood_environment = [
+childhood_environment_options = [
   "Ran on The Street, with no adult supervision.",
   "Spent in a safe Corp Zone walled off from the rest of the City.",
   "In a Nomad pack moving from place to place.",
@@ -209,7 +209,7 @@ childhood_environment = [
   'In a Corporate luxury "starscraper," high above the rest of the teeming rabble.',
 ];
 
-family_crisis = [
+family_crisis_options = [
   "Your family lost everything through betrayal.",
   "Your family lost everything through bad management.",
   "Your family was exiled or otherwise driven from their original home/nation/Corporation.",
@@ -222,7 +222,7 @@ family_crisis = [
   "You are the inheritor of a family debt; you must honor this debt before moving on with your life.",
 ];
 
-friends_relationship_to_you = [
+friends_relationship_to_you_options = [
   "Like an older sibling to you.",
   "Like a younger sibling to you.",
   "A teacher or mentor.",
@@ -235,7 +235,7 @@ friends_relationship_to_you = [
   "Someone with a common interest or goal.",
 ];
 
-enemy = [
+enemy_options = [
   "ex-friend",
   "ex-lover",
   "estranged relative",
@@ -248,7 +248,7 @@ enemy = [
   "boosterganger",
 ];
 
-what_caused_it = [
+what_caused_it_options = [
   "Caused the other to lose face or status.",
   "Caused the loss of lover, friend, or relative.",
   "Caused a major public humiliation.",
@@ -261,7 +261,7 @@ what_caused_it = [
   "One of you set the other up for a crime they didn't commit.",
 ];
 
-what_can_enemy_do = [
+what_can_enemy_do_options = [
   "Just themselves and even they won't go out of their way.",
   "Just themselves.",
   "Just themselves and a close friend.",
@@ -274,7 +274,7 @@ what_can_enemy_do = [
   "An entire city or government or agency",
 ];
 
-sweet_revenge = [
+sweet_revenge_options = [
   "Avoid the scum.",
   "Go into a murderous rage and try to physically rip their face off.",
   "Backstab them indirectly.",
@@ -283,7 +283,7 @@ sweet_revenge = [
   "Set out to murder or maim them.",
 ];
 
-what_happened = [
+what_happened_options = [
     "Your lover died in an accident.",
     "Your lover mysteriously vanished.",
     "It just didn't work out.",
@@ -296,7 +296,7 @@ what_happened = [
     "Your lover is imprisoned or exiled."
 ]
 
-life_goals = [
+life_goals_options = [
     "Get rid of a bad reputation.",
     "Gain power and control.",
     "Get off The Street no matter what it takes.",
@@ -309,7 +309,7 @@ life_goals = [
     "Become feared and respected."
 ]
 
-rbl_rb_what_kind = [
+rbl_rb_what_kind_options = [
     "Musician",
     "Slam Poet",
     "Street Artist",
@@ -322,7 +322,7 @@ rbl_rb_what_kind = [
     "Idoru"
 ]
 
-rbl_rb_why_leave_band = [
+rbl_rb_why_leave_band_options = [
     "You were a jerk and the rest of the group voted you out.",
     "You got caught sleeping around with another member's mainline.",
     "The rest of the group was killed in a tragic \"accident.\"",
@@ -331,7 +331,7 @@ rbl_rb_why_leave_band = [
     "You decided to go solo."
 ]
 
-rbl_rb_where_perform = [
+rbl_rb_where_perform_options = [
     "Alternative Cafes",
     "Private Clubs",
     "Seedy Dive Bars",
@@ -340,7 +340,7 @@ rbl_rb_where_perform = [
     "On the Data Pool"
 ]
 
-rbl_rb_whos_gunning4You = [
+rbl_rb_whos_gunning4You_options = [
     "Old group member who thinks you did them dirty.",
     "Rival group or artist trying to steal market share.",
     "Corporate enemies who don't like your message.",
@@ -349,7 +349,7 @@ rbl_rb_whos_gunning4You = [
     "Romantic interest or media figure who wants revenge for personal reasons."
 ]
 
-rbl_solo_type = [
+rbl_solo_type_options = [
   "Bodyguard",
   "Street Muscle for Hire",
   "Corporate Enforcer who takes jobs on the side",
@@ -358,7 +358,7 @@ rbl_solo_type = [
   "Assassin/Hitman for Hire",
 ];
 
-rbl_solo_moral_compass = [
+rbl_solo_moral_compass_options = [
   'Always working for good, trying to take out the "bad guys."',
   "Always spare the innocent (elderly, women, children, pets).",
   "Will occasionally slip and do unethical or bad things, but it's rare.",
@@ -367,7 +367,7 @@ rbl_solo_moral_compass = [
   "Totally evil. You engage in illegal, unethical work all the time; in fact, you enjoy it.",
 ];
 
-rbl_solo_operational_territory = [
+rbl_solo_operational_territory_options = [
   "A Corporate Zone",
   "Combat Zones",
   "The whole City",
@@ -376,7 +376,7 @@ rbl_solo_operational_territory = [
   "Wherever the money takes you",
 ];
 
-rbl_solo_whos_gunning = [
+rbl_solo_whos_gunning_options = [
     "A Corporation you may have angered.",
     "A boostergang you may have tackled earlier.",
     "Corrupt Lawmen or Lawmen who mistakenly think you're guilty of something.",
