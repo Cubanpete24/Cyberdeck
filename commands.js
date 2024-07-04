@@ -22,6 +22,8 @@ help = [
   '<span class="command">getToons</span>          Display names of all toons in database',
   '<span class="command">create</span>          Open dialog to create new toon',
   '<span class="command">info [toonName]</span>          Display info of toonhelp',
+  '<span class="command">edit [toonName]</span>          edit toon',
+
 
 
   "<br>",

@@ -51,8 +51,8 @@ var lifeGoals = document.getElementById("lifeGoals");
 var formDiv2 = document.getElementById("formFright");
 
 var submitLifepathButton = document.getElementById("submitLifepathButton");
-submitLifepathButton.onclick = function() {submitLifepath()};
-//submitLifepathButton.onclick = function() {getIDByHandle("Lizzard")};
+//submitLifepathButton.onclick = function() {submitLifepath()};
+submitLifepathButton.onclick = function() {populateLifepathFieldsForEditing("Lizzard")};
 
 
 
@@ -366,6 +366,26 @@ function getIDByHandle(handle) {
   })
   .catch((error) => console.error(error));
 };
+
+function populateLifepathFieldsForEditing(handle){
+  url = "http://localhost:8081/getLifepathByHandle/" + handle;
+  fetch(url, { method: "GET" })
+  .then((response) => {
+    if (response.ok) {
+      console.log(response)
+      return response.json();
+    }
+    return "No Edgerunner with that name exists";
+  })
+  .then(function (data) {
+    //TODO There HAS to be a way to iterate this.
+    culturalOrigin.value = data.cultural_origins;
+    languages.value = data.languages;
+  })
+  .catch((error) => console.error(error));
+
+
+}
 
 async function testFunc() {
   console.log(life_goals[0]);
