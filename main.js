@@ -26,33 +26,33 @@ var roleLevel = document.getElementById("roleLevel");
 var hp = document.getElementById("hp");
 
 //lifepath form values 
-var culturalOrigin = document.getElementById("culturalOrigin");
+var culturalOrigin = document.getElementById("cultural_origin");
 var languages = document.getElementById("languages");
 var personality = document.getElementById("personality");
-var clothingStyle = document.getElementById("clothingStyle");
+var clothingStyle = document.getElementById("clothing_style");
 var hairstyle = document.getElementById("hairstyle");
 var affectation = document.getElementById("affectation");
-var valuedQualityPerson = document.getElementById("valuedQualityPerson");
-var feelingsAboutPeople = document.getElementById("feelingsAboutPeople");
-var mostValuedPerson = document.getElementById("mostValuedPerson");
-var mostValuedPossession = document.getElementById("mostValuedPossession");
-var originalBackground = document.getElementById("originalBackground");
-var childhoodEnv = document.getElementById("childhoodEnv");
-var familyCrisis = document.getElementById("familyCrisis");
-var friendCount = document.getElementById("friendCount");
-var friendsRelationshipToYou = document.getElementById("friendsRelationshipToYou");
+var valuedQualityPerson = document.getElementById("most_valued_quality");
+var feelingsAboutPeople = document.getElementById("feelings_about_people");
+var mostValuedPerson = document.getElementById("most_valued_person");
+var mostValuedPossession = document.getElementById("most_valued_possession");
+var originalBackground = document.getElementById("original_background");
+var childhoodEnv = document.getElementById("childhood_environment");
+var familyCrisis = document.getElementById("family_crisis");
+var friendCount = document.getElementById("friend_count");
+var friendsRelationshipToYou = document.getElementById("friends_relationship_to_you");
 var enemy = document.getElementById("enemy");
-var fallout = document.getElementById("fallout");
-var whatCanEnemyDo = document.getElementById("whatCanEnemyDo");
-var sweetRevenge = document.getElementById("sweetRevenge");
-var whatHappened = document.getElementById("whatHappened");
-var lifeGoals = document.getElementById("lifeGoals");
+var fallout = document.getElementById("what_caused_it");
+var whatCanEnemyDo = document.getElementById("what_can_enemy_do");
+var sweetRevenge = document.getElementById("sweet_revenge");
+var whatHappened = document.getElementById("what_happened");
+var lifeGoals = document.getElementById("life_goals");
 
 var formDiv2 = document.getElementById("formFright");
 
 var submitLifepathButton = document.getElementById("submitLifepathButton");
-//submitLifepathButton.onclick = function() {submitLifepath()};
-submitLifepathButton.onclick = function() {populateLifepathFieldsForEditing("Lizzard")};
+submitLifepathButton.onclick = function() {submitLifepath()};
+//submitLifepathButton.onclick = function() {populateLifepathFieldsForEditing("Lizzard")};
 
 
 
@@ -301,35 +301,17 @@ function getIDByHandle(handle) {
  function submitLifepath() {
   
   const formData = new FormData();
-  let handle = "Lizzard";
-  console.log(personality);
-  console.log(languages.value);
+  let handle = "CLip";
+  // console.log(personality);
+  // console.log(languages.value);
 
-  formData.append("handle", handle);
-  formData.append("cultural_origins", culturalOrigin.value);
-  formData.append("languages", languages.value);
-  formData.append("personality", personality.value);
-  formData.append("clothing_style", clothingStyle.value);
-  formData.append("hairstyle", hairstyle.value);
-  formData.append("affectation", affectation.value);
-  formData.append("most_valued_quality", valuedQualityPerson.value);
-  formData.append("feelings_about_people", feelingsAboutPeople.value);
-  formData.append("most_valued_person", mostValuedPerson.value);
-  formData.append("most_valued_possession", mostValuedPossession.value);
-  formData.append("original_background", originalBackground.value);
-  formData.append("original_background_desc", originalBackground.value);
-  formData.append("childhood_environment", childhoodEnv.value);
-  formData.append("family_crisis", familyCrisis.value);
-  formData.append("friends_relationship_to_you", friendsRelationshipToYou.value);
-  formData.append("enemy", enemy.value);
-  formData.append("what_caused_it", fallout.value);
-  formData.append("what_can_enemy_do", whatCanEnemyDo.value);
-  formData.append("sweet_revenge", sweetRevenge.value);
-  formData.append("what_happened", whatHappened.value);
-  formData.append("life_goals", lifeGoals.value);
+   formData.append("handle", handle);
+  var ancestor = document.getElementById("formFright");
+  const descendants = [...ancestor.getElementsByTagName('textarea')];
+  descendants.forEach((element) => iterateFormData(element, formData));
 
 
-  //console.log(jsonBody);
+  console.log(JSON.stringify(Object.fromEntries(formData)));
   
 
   urlForID = "http://localhost:8081/IdByHandle/" + handle;
@@ -387,6 +369,28 @@ function populateLifepathFieldsForEditing(handle){
 
 }
 
-async function testFunc() {
-  console.log(life_goals[0]);
-};
+// async function testFunc() {
+//   console.log(life_goals_options[0]);
+//   var ancestor = document.getElementById("formFright");
+//   console.log(ancestor);
+//   const descendants = [...ancestor.getElementsByTagName('textarea')];
+
+//   descendants.forEach((element) => iterateThruTextAreas(element));
+  
+
+
+  
+//   // gets all descendent of ancestor
+
+
+// };
+
+// function iterateThruTextAreas(textArea){
+//   var tempElem = document.getElementById(textArea.id);
+//   console.log(tempElem.value)
+// }
+
+function iterateFormData(element, formData){
+  formData.append(element.id, element.value);
+  return formData;
+}
