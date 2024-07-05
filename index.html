@@ -23,13 +23,37 @@
         </pre>
         <p class=""><span class="index">SGI Technologies is not responsible for any botched jobs</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
       </div>
-      <div class="form" id="formFleft" hidden>
+      <div class="form" id="formFleft" >
         <dt id="formHandle" class="toonForm">Handle:          </dt><dd><textarea id="handle"></textarea></dd>
         <dt id="formRealName" class="toonForm">Real Name: </dt><dd><textarea id="realName"></textarea></dd>
         <dt id="formRole" class="toonForm">Role:          </dt><dd><textarea id="role"></textarea></dd>
         <dt id="formRoleLevel" class="toonForm">Role Level:</dt><dd><textarea id="roleLevel"></textarea></dd>
         <div id="submitToonButton" class="toonForm">Submit</div>
       </div>
+        <dl class="form" id="formFright" >
+          <dt class="cultDT">Cultural Origin:          </dt><dd class="cultDD"><textarea id="cultural_origins"></textarea><button class="cultRoll" tabindex="-1"></button></dd>
+          <dt class="cultDT">Languages (comma separated): </dt><dd class="cultDD"><textarea id="languages"></textarea></dd>
+          <dt class="cultDT">Personality:</dt><dd class="cultDD"><textarea id="personality"></textarea></dd>
+          <dt class="cultDT">Clothing Style:</dt><dd class="cultDD"><textarea id="clothing_style"></textarea></dd>
+          <dt class="cultDT">Hairstyle:</dt><dd class="cultDD"><textarea id="hairstyle"></textarea></dd>
+          <dt class="cultDT">Affectation you are never without:</dt><dd class="cultDD"><textarea id="affectation"></textarea></dd>
+          <dt class="cultDT">Most valued quality in a person:</dt><dd class="cultDD"><textarea id="most_valued_quality"></textarea></dd>
+          <dt class="cultDT">General attitude towards people:</dt><dd class="cultDD"><textarea id="feelings_about_people"></textarea></dd>
+          <dt class="cultDT">Most Valued Person:</dt><dd class="cultDD"><textarea id="most_valued_person"></textarea></dd>
+          <dt class="cultDT">Most Valued Possession:</dt><dd class="cultDD"><textarea id="most_valued_possession"></textarea></dd>
+          <dt class="cultDT">Original Background:</dt><dd class="cultDD"><textarea id="original_background"></textarea></dd>
+          <dt class="cultDT">Childhood Environment:</dt><dd class="cultDD"><textarea id="childhood_environment"></textarea></dd>
+          <dt class="cultDT">Family Crisis:</dt><dd class="cultDD"><textarea id="family_crisis"></textarea></dd>
+          <dt class="cultDT">Friend count:</dt><dd class="cultDD"><textarea id="friendCount"></textarea></dd>
+          <dt class="cultDT">Friend's relationship to you:</dt><dd class="cultDD"><textarea id="friends_relationship_to_you"></textarea></dd>
+          <dt class="cultDT">Enemy:</dt><dd class="cultDD"><textarea id="enemy"></textarea></dd>
+          <dt class="cultDT">What caused the fallout:</dt><dd class="cultDD"><textarea id="what_caused_it"></textarea></dd>
+          <dt class="cultDT">What can the enemy do?:</dt><dd class="cultDD"><textarea id="what_can_enemy_do"></textarea></dd>
+          <dt class="cultDT">Sweet Revenge:</dt><dd class="cultDD"><textarea id="sweet_revenge"></textarea></dd>
+          <dt class="cultDT">What Happened?:</dt><dd class="cultDD"><textarea id="what_happened"></textarea></dd>
+          <dt class="cultDT">Life Goals:</dt><dd class="cultDD"><textarea id="life_goals"></textarea></dd>
+          <div id="submitLifepathButton" class="cultDT">Submit</div>
+          </dl>
       <div id="command" onclick="$('texter').focus();">
         <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
                      moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>
@@ -38,32 +62,6 @@
           <span id="typer"></span><b class="cursor" id="cursor" style="left: 0px;">█</b>
         </div>
       </div>
-    </div>
-    <div class="fright">
-      <dl class="form" id="formFright" >
-        <dt class="cultDT">Cultural Origin:          </dt><dd class="cultDD"><textarea id="cultural_origin"></textarea><button class="cultRoll" tabindex="-1"></button></dd>
-        <dt class="cultDT">Languages (comma separated): </dt><dd class="cultDD"><textarea id="languages"></textarea></dd>
-        <dt class="cultDT">Personality:</dt><dd class="cultDD"><textarea id="personality"></textarea></dd>
-        <dt class="cultDT">Clothing Style:</dt><dd class="cultDD"><textarea id="clothing_style"></textarea></dd>
-        <dt class="cultDT">Hairstyle:</dt><dd class="cultDD"><textarea id="hairstyle"></textarea></dd>
-        <dt class="cultDT">Affectation you are never without:</dt><dd class="cultDD"><textarea id="affectation"></textarea></dd>
-        <dt class="cultDT">Most valued quality in a person:</dt><dd class="cultDD"><textarea id="most_valued_quality"></textarea></dd>
-        <dt class="cultDT">General attitude towards people:</dt><dd class="cultDD"><textarea id="feelings_about_people"></textarea></dd>
-        <dt class="cultDT">Most Valued Person:</dt><dd class="cultDD"><textarea id="most_valued_person"></textarea></dd>
-        <dt class="cultDT">Most Valued Possession:</dt><dd class="cultDD"><textarea id="most_valued_possession"></textarea></dd>
-        <dt class="cultDT">Original Background:</dt><dd class="cultDD"><textarea id="original_background"></textarea></dd>
-        <dt class="cultDT">Childhood Environment:</dt><dd class="cultDD"><textarea id="childhood_environment"></textarea></dd>
-        <dt class="cultDT">Family Crisis:</dt><dd class="cultDD"><textarea id="family_crisis"></textarea></dd>
-        <dt class="cultDT">Friend count:</dt><dd class="cultDD"><textarea id="friendCount"></textarea></dd>
-        <dt class="cultDT">Friend's relationship to you:</dt><dd class="cultDD"><textarea id="friends_relationship_to_you"></textarea></dd>
-        <dt class="cultDT">Enemy:</dt><dd class="cultDD"><textarea id="enemy"></textarea></dd>
-        <dt class="cultDT">What caused the fallout:</dt><dd class="cultDD"><textarea id="what_caused_it"></textarea></dd>
-        <dt class="cultDT">What can the enemy do?:</dt><dd class="cultDD"><textarea id="what_can_enemy_do"></textarea></dd>
-        <dt class="cultDT">Sweet Revenge:</dt><dd class="cultDD"><textarea id="sweet_revenge"></textarea></dd>
-        <dt class="cultDT">What Happened?:</dt><dd class="cultDD"><textarea id="what_happened"></textarea></dd>
-        <dt class="cultDT">Life Goals:</dt><dd class="cultDD"><textarea id="life_goals"></textarea></dd>
-        <div id="submitLifepathButton" class="cultDT">Submit</div>
-        </dl>
     </div>
     <script src="caret.js"></script>
     <script src="commands.js"></script>
