@@ -224,21 +224,15 @@ body {
    }
 
 
-  .toonForm {
     dt {
       float: left;
-      width: 120px;
-      padding: 4px;
-      height: 70px;
     }
     dd {
-      margin-left: 88px;
-      padding: 4px;
-      width: 240px;
+      float: right;
 
     }
 
-  }
+  
 
 
   }
