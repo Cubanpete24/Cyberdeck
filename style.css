@@ -225,11 +225,13 @@ body {
 
 
     dt {
-      float: left;
-    }
+      width:200px;
+      margin-left:auto;
+      display:inline-block;    }
     dd {
-      float: right;
-
+      width:200px;
+      margin-left:auto;
+      display:inline-block;
     }
 
   
