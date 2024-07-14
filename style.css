@@ -140,6 +140,8 @@ body {
   }
 
   .form {
+    border: 1px solid red;
+
     textarea { 
       background: var(--terminal_backdrop);
       color:#B89076;
@@ -157,6 +159,7 @@ body {
       -moz-box-shadow: none;
       box-shadow: none;
       outline: none;
+
 
   
       resize: none;
@@ -223,16 +226,20 @@ body {
     color:#B89076;
    }
 
-
-    dt {
-      width:200px;
-      margin-left:auto;
-      display:inline-block;    }
-    dd {
-      width:220px;
-      margin-left:auto;
-      display:inline-block;
-    }
+   dt {
+    display:table-cell;
+    vertical-align:middle;
+    width: 30%;
+    padding-right:5px;
+    display: flex;
+    align-items: center;
+  }
+  dd {
+    display:table-cell;
+    vertical-align:middle;
+    width: 70%;
+    margin: 0;
+  }
 
   
 
