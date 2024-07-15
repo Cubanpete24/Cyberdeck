@@ -141,16 +141,17 @@ body {
 
   .form {
     border: 1px solid red;
+    width: 100%;
 
     textarea { 
-      background: var(--terminal_backdrop);
+       background: var(--terminal_backdrop);
       color:#B89076;
       resize:none;
       border-top: var(--terminal_textColorPrimary) dotted 2px;
       border-bottom: var(--terminal_textColorPrimary) dotted 2px;
       border-left: transparent dotted 2px;
-      border-right: transparent dotted 2px;
-      left: 10px; 
+      border-right: transparent dotted 2px; 
+       left: 10px; 
       height:15px;
       position: relative;
       caret-color: var(--terminal_textColorPrimary);
@@ -158,11 +159,7 @@ body {
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
       box-shadow: none;
-      outline: none;
-
-
-  
-      resize: none;
+      outline: none; 
    }
     textarea:focus { 
      border-top: var(--terminal_textColorPrimary) dotted 2px; 
@@ -231,8 +228,6 @@ body {
     vertical-align:middle;
     width: 30%;
     padding-right:5px;
-    display: flex;
-    align-items: center;
   }
   dd {
     display:table-cell;
