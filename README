@@ -10,3 +10,7 @@ The Cyberdeck is a javascript web application that makes API calls to a Spring A
 The goal for this app is to help Cyberpunk Red GMs facilitate their games with an "in universe" tool. 
 
 The first phase of development involves persisting a database of player characters and NPCs (or toons). The user will be able to create, update, and delete toons. Creation will come in the same order as the book suggests for cohesion. 
+
+The second phase of development will entail creating encounters. Inside these encounters we can track the initiatives of all the players, and NPCs they're facing. Inside this module. we will also track everyone's HP, ammo, and abilities that can only proc under certain conditions. 
+
+The third phase of development (Although honestly this might be good to iron out before phase 2) will entail having multiple "users" connected to a single host server. Probably peer to peer. each user will be able to pull data from the shared SQLite db, and see data update in real time. 
