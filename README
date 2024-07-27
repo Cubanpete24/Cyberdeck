@@ -30,3 +30,5 @@ The second phase of development will entail creating encounters. Inside these en
 The third phase of development (Although honestly this might be good to iron out before phase 2) will entail having multiple "users" connected to a single host server. Probably peer to peer. each user will be able to pull data from the shared SQLite db, and see data update in real time. 
 
 The office is set up!@ First commit from my home office in the new state
+
+one more last mintue commit
