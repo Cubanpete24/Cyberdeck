@@ -14,14 +14,14 @@ var textarea = document.getElementById("texter");
 var terminal = document.getElementById("terminal");
 
 // html elements to be referenced by 
-var submitToonButton = document.getElementById("submitToonButton");
-var formDiv = document.getElementById("formFleft");
+//var submitToonButton = document.getElementById("submitToonButton");
+//var formDiv = document.getElementById("formFleft");
 
 submitToonButton.onclick = function() {submitToon()};
 
 // form values
-var textHandle = document.getElementById("handle");
-var textRole = document.getElementById("role");
+//var textHandle = document.getElementById("handle");
+//var textRole = document.getElementById("role");
 var roleLevel = document.getElementById("roleLevel");
 var hp = document.getElementById("hp");
 
@@ -48,10 +48,10 @@ var hp = document.getElementById("hp");
 // var whatHappened = document.getElementById("what_happened");
 // var lifeGoals = document.getElementById("life_goals");
 
-var formDiv2 = document.getElementById("formFright");
+//var formDiv2 = document.getElementById("formFright");
 
-var submitLifepathButton = document.getElementById("submitLifepathButton");
-submitLifepathButton.onclick = function() {submitLifepath()};
+//var submitLifepathButton = document.getElementById("submitLifepathButton");
+//submitLifepathButton.onclick = function() {submitLifepath()};
 //submitLifepathButton.onclick = function() {populateLifepathFieldsForEditing("Lizzard")};
 
 
