@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="main">
-  <div class="fleft">
+  
     <div id="terminal">
         <pre>
 
@@ -23,16 +23,6 @@
         </pre>
         <p class=""><span class="index">SGI Technologies is not responsible for any botched jobs</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
       </div>
-      <div class="form" id="formFleft" >
-        <p>Required fields are followed by <span aria-label="required">*</span>.</p>
-        <dt id="formHandle" class="toonForm">Handle:          </dt><dd><textarea id="handle"></textarea></dd>
-        <dt id="formRealName" class="toonForm">Real Name: </dt><dd><textarea id="realName"></textarea></dd>
-        <dt id="formRole" class="toonForm">Role:          </dt><dd><textarea id="role"></textarea></dd>
-        <dt id="formRoleLevel" class="toonForm">Role Level:</dt><dd><textarea id="roleLevel"></textarea></dd>
-        <div id="submitToonButton" class="toonForm">Submit</div>
-      </div>
-        <dl class="form" id="formFright" >
-          </dl>
       <div id="command" onclick="$('texter').focus();">
         <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
                      moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>
@@ -46,6 +36,5 @@
     <script src="commands.js"></script>
     <script src="main.js"></script>
     <script src="Lifepath.js"></script>
-  </div>
 </body>
 </html>

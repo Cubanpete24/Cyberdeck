@@ -17,7 +17,7 @@ var terminal = document.getElementById("terminal");
 //var submitToonButton = document.getElementById("submitToonButton");
 //var formDiv = document.getElementById("formFleft");
 
-submitToonButton.onclick = function() {submitToon()};
+//submitToonButton.onclick = function() {submitToon()};
 
 // form values
 //var textHandle = document.getElementById("handle");
@@ -85,6 +85,7 @@ command.innerHTML = textarea.value;
 
 // command is equal to whatever is in the textbox.
 function enterKey(e) {
+  // e is equal to a key, any key
   //13 == enter is pressed
   if (e.keyCode == 13) {
     // we push the current command onto the commands array
@@ -101,7 +102,10 @@ function enterKey(e) {
     //commander is where we parse what's entered
     //commander(command.innerHTML.toLowerCase());
     //NOTE: remove toLowerCase for now
-    commander(command.innerHTML);
+    //commander(command.innerHTML);
+    commander(textarea.value)
+    //console.log(command.innerHTML)
+    //console.log(textarea.value)
 
 
     // reset values
@@ -129,6 +133,9 @@ function enterKey(e) {
 }
 
 function commander(cmd) {
+  console.log("heyoo what")
+  console.log(cmd)
+  console.log(cmd.substring(0, 4).toLowerCase())
   let url = "";
 
   if (cmd.substring(0, 4).toLowerCase() === "info") {
@@ -165,6 +172,7 @@ function commander(cmd) {
   } else {
     switch (cmd.toLowerCase()) {
       case "help":
+        console.log("hmm")
         loopLines(help, "color2 margin", 80);
         break;
       case "whois":
@@ -252,12 +260,12 @@ function clearValuesToonCreationForm() {
 }
 // function handles form processing for creating new toon, player, or NPC, and persisting it to db
 async function submitToon() {
-  const formData = new FormData();
-  formData.append("hp", hp.value);
-  formData.append("handle", handle.value);
-  formData.append("role", role.value);
-  formData.append("role_level", roleLevel.value);
-  formData.append("max_hp", hp.value);
+  // const formData = new FormData();
+  // formData.append("hp", hp.value);
+  // formData.append("handle", handle.value);
+  // formData.append("role", role.value);
+  // formData.append("role_level", roleLevel.value);
+  // formData.append("max_hp", hp.value);
 
   let jsonBody = JSON.stringify(Object.fromEntries(formData));
   console.log(jsonBody);
