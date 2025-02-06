@@ -133,9 +133,12 @@ function enterKey(e) {
 }
 
 function commander(cmd) {
+  cmd = cmd.replace(/(\r\n|\n|\r)/gm, "");
+    const swtchStr = new String(cmd);
+
   console.log("heyoo what")
-  console.log(cmd)
-  console.log(cmd.substring(0, 4).toLowerCase())
+  console.log(swtchStr)
+  console.log(swtchStr.substring(0, 4).toLowerCase() === "help")
   let url = "";
 
   if (cmd.substring(0, 4).toLowerCase() === "info") {
@@ -170,12 +173,14 @@ function commander(cmd) {
     linerB.innerHTML = "cafe_bustelo2020@nc_direct.com:~$";
   } else if (cmd.substring === "stuff") {
   } else {
-    switch (cmd.toLowerCase()) {
+   // console.log(swtchStr.valueOf())
+   // console.log(swtchStr.valueOf() === "help")
+    switch (cmd.valueOf()) {
       case "help":
         console.log("hmm")
         loopLines(help, "color2 margin", 80);
         break;
-      case "whois":
+      case "whoi ":
         loopLines(whois, "color2 margin", 80);
         break;
       case "history":
