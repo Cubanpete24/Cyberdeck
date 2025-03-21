@@ -1,0 +1,53 @@
+:root {
+  --terminal_backdrop: #001b02;
+  --terminal_textColorPrimary: #f99f04;
+  --terminal_textFocus: #73ABAD;
+  --linerText: "cafe_bustelo2020@nc_direct.com:~$";
+}
+
+body {
+  background-color: var(--terminal_backdrop);
+  color: var(--terminal_textColorPrimary);
+  caret-shape: block;
+
+}
+
+#container {
+  padding-bottom: 30px /*whatever the height of your footer is*/
+}
+
+#display_80 {
+  position: fixed;
+  width: 100%;
+  height: 80%;
+  top: 0;
+  border: 1px solid black;
+  overflow-y: scroll;
+  scrollbar-color: var(--terminal_textColorPrimary) var(--terminal_backdrop);
+}
+
+#display_20 {
+  position: fixed;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  border: 1px solid black;
+}
+
+#terminal_text_area {
+  border: none; /* Remove default border */
+  padding: 0; /* Remove default padding */
+  background-color: transparent; /* Make background transparent */
+  resize: none; /* Disable resizing handles */
+  font-family: inherit; /* Inherit font style from parent */
+  font-size: inherit; /* Inherit font size */
+  color: inherit; /* Inherit text color */
+
+}
+
+#terminal_text_area:read-write:focus {
+  outline: none;
+}
+
+/*cursor code*/
+

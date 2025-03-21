@@ -1,4 +1,4 @@
-var story = document.getElementById("story");
+var huh = document.getElementById("huh");
 
 // liner is the wrapper element for where we type
 var liner = document.getElementById("liner");
@@ -11,7 +11,7 @@ var command = document.getElementById("typer");
 var terminal_text_area = document.getElementById("terminal_text_area");
 
 // terminal is the wrapper for the terminal
-var story = document.getElementById("story");
+var terminal = document.getElementById("terminal");
 
 // display containers
 var display_20 = document.getElementById("display_20");
@@ -105,14 +105,26 @@ function enterKey(e) {
   //13 == enter is pressed
   if (e.keyCode == 13) {
     // we push the current command onto the commands array
+    //commands.push(command.innerHTML);
     // git is the length of the commands stack, we get the most recent
     git = commands.length;
-    commander(terminal_text_area.textContent)
+    //add the new line here for the next command
+    // addLine(
+    //   "cafe_bustelo2020@nc_direct.com:~$ " + command.innerHTML,
+    //   "no-animation",
+    //   0
+    // );
+
+    //commander is where we parse what's entered
+    //commander(command.innerHTML.toLowerCase());
+    //NOTE: remove toLowerCase for now
+    //commander(command.innerHTML);
+    commander(terminal_text_area.value)
 
 
     // reset values
     //command.innerHTML = "";
-    terminal_text_area.textContent = "";
+    terminal_text_area.value = "";
   }
   //38 is up pressed
   // this is responsible for cycling thru past commands
@@ -174,18 +186,25 @@ function commander(cmd) {
    // console.log(swtchStr.valueOf())
    // console.log(swtchStr.valueOf() === "help")
     switch (cmd.valueOf()) {
-      case "clear":
-        setTimeout(function () {
-          story.innerHTML = '';
-        }, 1);
-        break;
       case "help":
         console.log("In Help")
-        loopLines(help, "color2 margin", 80);
+        //loopLines(help, "color2 margin", 80);
         break;
-      case "whois":
+      case "whoi ":
         //loopLines(whois, "color2 margin", 80);
         break;
+      case "history":
+        addLine("<br>", "", 0);
+        //loopLines(commands, "color2", 80);
+        addLine("<br>", "command", 80 * commands.length + 50);
+        break;
+      case "clear":
+        setTimeout(function () {
+          terminal.innerHTML = '<a id="huh"></a>';
+          huh = document.getElementById("huh");
+        }, 1);
+        break;
+      case "ls":
       case "gettoons":
         url = "http://localhost:8081/getAllToons";
         fetch(url, { method: "GET" })
@@ -232,13 +251,13 @@ function addLine(text, style, time) {
     }
   }
   setTimeout(function () {
-     var next = document.createElement("p");
-     next.innerHTML = t;
-     next.className = style;
-    //var text = document.createTextNode("This just got added");
-    story.appendChild(next);
+    var next = document.createElement("p");
+    next.innerHTML = t;
+    next.className = style;
 
-    //window.scrollTo(0, document.body.offsetHeight);
+    huh.parentNode.inserthuh(next, huh);
+
+    window.scrollTo(0, document.body.offsetHeight);
   }, time);
 }
 // calls addLine, for big data guys

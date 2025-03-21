@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberdeck</title>
-    <link rel="stylesheet" href=" style31.css">
-		<link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <div id="main">
-  
-    <div id="terminal">
-        <pre>
 
-    ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
-    ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-    ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
-    ░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░  
-    ░▒▓█▓▒░         ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ 
-    ░▒▓█▓▒░░▒▓█▓▒░  ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ 
-    ░▒▓██████▓▒░   ░▒▓█▓▒░   ░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░ 
-        </pre>
-        <p class=""><span class="index">SGI Technologies is not responsible for any botched jobs</span></p><p class=""></p><p class=""><span class="color2">Welcome</span></p><p class=""><span class="color2">For a list of available commands, type</span> <span class="command">'help'</span><span class="color2">.</span></p><a id="before"></a>
-      </div>
-      <div id="command" onclick="$('texter').focus();">
-        <textarea type="text" id="texter" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
-                     moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>
-        <div id="liner">
-          <span id="linerB">cafe_bustelo2020@nc_direct.com:~$</span>
-          <span id="typer"></span><b class="cursor" id="cursor" style="left: 0px;">█</b>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberdeck</title>
+  <link rel="stylesheet" href=" style13.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <div id="display_80">
+    <p id="story"></p>
+  </div>
+  <div id="display_20">
+    <div id="liner">
+      <p>c:\users\cafe_bustelo24> <span id="terminal_text_area" contenteditable></span></p>
     </div>
-    <script src="caret.js"></script>
-    <script src="commands.js"></script>
-    <script src="main.js"></script>
-    <script src="Lifepath.js"></script>
+  </div>
+  <script src="commands.js"></script>
+  <script src="main.js"></script>
+  <script src="Lifepath.js"></script>
 </body>
+
 </html>
+
+<!-- This is the old command liner -->
+<!-- <div id="command">
+  <textarea type="text" id="terminal_text_area" onkeyup="typeIt(this, event)" onkeydown="typeIt(this, event); 
+               moveIt(this.value.length, event)" onkeypress="typeIt(this, event);" autofocus=""></textarea>
+  <div id="liner">
+    <span id="liner_username">cafe_bustelo2020@nc_direct.com:~$</span>
+    <span id="typer"></span><b class="cursor" id="cursor" style="left: 0px;">█</b>
+  </div>
+</div> -->
