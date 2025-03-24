@@ -15,7 +15,18 @@ var story = document.getElementById("story");
 
 // display containers
 var display_20 = document.getElementById("display_20");
-var display_80 = document.getElementById("display_80");
+var display_70 = document.getElementById("display_70");
+var display_10 = document.getElementById("display_10");
+
+//buttons
+var characterButton = document.getElementById("character_button");
+var databaseButton = document.getElementById("database_button");
+var settingsButton = document.getElementById("settings_button");
+
+
+characterButton.addEventListener('click', function() {
+  console.log('huh');
+});
 
 
 
